@@ -2,7 +2,8 @@ all: require validate test
 
 require:
 	@echo "Checking the programs required for the build are installed..."
-	@shellcheck --version >/dev/null 2>&1 || (echo "ERROR: You must install shellcheck before this project can be built."; exit 1)
+	@shellcheck --version >/dev/null 2>&1 || (echo "ERROR: shellcheck is required."; exit 1)
+	@git --version >/dev/null 2>&1 || (echo "ERROR: git is required."; exit 1)
 	@printf "All required programs present.\n\n"
 
 validate:
