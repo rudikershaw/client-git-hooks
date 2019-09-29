@@ -1,1 +1,2 @@
+language: minimal
 script: make
