@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# Run all scripts defined in the commit-msg-hooks directory.
+# This allows individual operations/verifications/restriction to be stored in their own files.
+set -e
+for f in commit-msg-hooks/*.sh; do
+  sh "$f $1"
+done

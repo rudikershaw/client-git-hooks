@@ -14,7 +14,7 @@ touch file.small
 git add . > /dev/null 2>&1
 
 # Assertions
-set +e
+set -e
 # exit 1 when a file larger than 1MB is staged.
 sh "$hook" > /dev/null 2>&1 && (echo "FAILED: maximum-file-size.sh should exit 1 when a >1MB file staged."; exit 1)
 # Do nothing if turned off by git configuration.

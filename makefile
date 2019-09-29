@@ -16,7 +16,7 @@ validate:
 
 test:
 	@echo "Running tests..."
-	@test/test.sh
+	@test/test.sh || (echo "ERROR: There were test failures."; exit 1)
 	@printf "All tests passed.\n\n"
 
 clean:
