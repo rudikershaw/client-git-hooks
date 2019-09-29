@@ -1,3 +1,4 @@
+#!/bin/sh
 wdir=$(pwd)
 tmpdir=$(mktemp -d -t mfs-test-XXXXXXXXXX)
 
@@ -6,7 +7,7 @@ trap '{ rm -R -f $tmpdir; }' EXIT
 
 # Given
 hook="$wdir/git-hooks/pre-commit-hooks/maximum-file-size.sh"
-cd "$tmpdir"
+cd "$tmpdir" || (echo "FAILED: Could not cd to tmp dir for maximum-file-size.sh test."; exit 1)
 git init > /dev/null 2>&1
 dd if=/dev/zero of=file.toobig bs=1024 count=1024 > /dev/null 2>&1
 git add . > /dev/null 2>&1
