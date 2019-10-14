@@ -39,7 +39,7 @@ By default this library will stop the committing of any files above 1MB. Large f
 git config hooks.allowbigfiles true
 ```
 
-Or if you need to change the maximum file size you cannot
+Or if you need to change the maximum file size you can
 
 ```
 git config hooks.maxfilesize $x
