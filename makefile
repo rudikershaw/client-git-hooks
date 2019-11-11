@@ -22,7 +22,7 @@ test:
 package:
 	@echo "Packaging hooks into target/git-hooks.zip"
 	@mkdir target
-	@zip target/git-hooks.zip git-hooks/*
+	@zip -r target/git-hooks.zip git-hooks
 	@echo "Packaging complete.\n"
 
 clean:
