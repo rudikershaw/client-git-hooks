@@ -22,5 +22,5 @@ exec 1>&2
 if ! git config --bool hooks.allowbigfiles ; then
     toplevel=$(git rev-parse --show-toplevel)
     maxsize=$(git config --int hooks.maxfilesize || echo 1000000)
-    git diff --name-only --cached | while read -r x; do too_big "$x"; done
+    git diff --name-only --diff-filter=ACM --cached | while read -r x; do too_big "$x"; done
 fi
