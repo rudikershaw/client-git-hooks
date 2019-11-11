@@ -1,6 +1,6 @@
-.PHONY: all require validate test clean
+.PHONY: all require validate test package clean
 
-all: require validate test
+all: clean require validate test package
 
 require:
 	@echo "Checking the programs required for the build are installed..."
@@ -19,6 +19,13 @@ test:
 	@test/test.sh || (echo "ERROR: There were test failures."; exit 1)
 	@printf "All tests passed.\n\n"
 
+package:
+	@echo "Packaging hooks into target/git-hooks.zip"
+	@mkdir target
+	@zip target/git-hooks.zip git-hooks/*
+	@echo "Packaging complete.\n"
+
 clean:
 	@echo "Removing temporary project files..."
+	@rm -Rf target/
 	@printf "All file removed successfully.\n\n"
