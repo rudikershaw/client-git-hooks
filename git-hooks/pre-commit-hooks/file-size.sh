@@ -19,8 +19,8 @@ EOF
 exec 1>&2
 
 # If you want to allow large files to be committed set this variable to true.
-if ! git config --bool hooks.allowbigfiles ; then
+if ! git config --bool hooks.file-size.disabled ; then
     toplevel=$(git rev-parse --show-toplevel)
-    maxsize=$(git config --int hooks.maxfilesize || echo 1000000)
+    maxsize=$(git config --int hooks.file-size.bytes || echo 1000000)
     git diff --name-only --diff-filter=ACM --cached | while read -r x; do too_big "$x"; done
 fi

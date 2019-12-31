@@ -21,8 +21,12 @@ git config user.name "P"
 git config user.email "S"
 sh "$hook" > /dev/null 2>&1 && (echo "FAILED: verify-author.sh should exit 1 when author details are not configured."; exit 1)
 # Do nothing if turned off by git configuration.
-git config hooks.allowanyauthor true
-sh "$hook" > /dev/null 2>&1 || (echo "FAILED: verify-author.sh should do nothing when hooks.allowanyauthor=true."; exit 1)
-git config --unset hooks.allowanyauthor
+git config hooks.verify-author.disabled true
+sh "$hook" > /dev/null 2>&1 || (echo "FAILED: verify-author.sh should do nothing when disabled."; exit 1)
+git config --unset hooks.verify-author.disabled
+# Do nothing if made less strict by git configuration.
+git config hooks.verify-author.email "."
+git config hooks.verify-author.username "."
+sh "$hook" > /dev/null 2>&1 || (echo "FAILED: verify-author.sh should exit 0 with lax regexes."; exit 1)
 
 echo "PASSED: verify-author.sh exits 1 when new instances of excluded strings are staged."
