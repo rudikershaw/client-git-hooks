@@ -1,2 +1,2 @@
 language: minimal
-script: make
+script: docker build ./
