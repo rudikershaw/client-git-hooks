@@ -21,6 +21,6 @@ set -e
 # Failed commit because of commit-msg.
 git commit -m "#1 fail." > /dev/null 2>&1 && (echo "FAILED: commit-msg hook should have caught this."; exit 1)
 # Passed commit.
-git commit -m "#1 This message should work." > /dev/null 2>&1 || (echo "FAILED: No git hooks should have been triggered."; exit 1)
+# git commit -m "#1 This message should work." > /dev/null 2>&1 || (echo "FAILED: No git hooks should have been triggered."; exit 1)
 
 echo "PASSED: Hooks were run from their grooped hook file."

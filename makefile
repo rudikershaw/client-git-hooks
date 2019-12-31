@@ -1,12 +1,6 @@
 .PHONY: all require validate test package clean
 
-all: clean require validate test package
-
-require:
-	@echo "Checking the programs required for the build are installed..."
-	@shellcheck --version >/dev/null 2>&1 || (echo "ERROR: shellcheck is required."; exit 1)
-	@git --version >/dev/null 2>&1 || (echo "ERROR: git is required."; exit 1)
-	@printf "All required programs present.\n\n"
+all: clean validate test package
 
 validate:
 	@echo "Performing basic validation on project files..."
@@ -17,6 +11,7 @@ validate:
 test:
 	@echo "Running tests..."
 	@test/test.sh || (echo "ERROR: There were test failures."; exit 1)
+	@test/integration-test.sh || (echo "ERROR: There were integration test failures."; exit 1)
 	@printf "All tests passed.\n\n"
 
 package:
