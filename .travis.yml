@@ -1,2 +1,5 @@
 language: minimal
-script: docker build ./
+script: make
+os:
+  - linux
+  - osx

@@ -1,4 +1,4 @@
-FROM koalaman/shellcheck-alpine
+FROM koalaman/shellcheck-alpine:v0.7.0
 
 RUN apk add --no-cache git make perl zip \
     && git config --global user.email "you@example.com" \
