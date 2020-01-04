@@ -1,5 +1,12 @@
-language: shell
-script: make
-os:
-  - linux
-  - osx
+language: sh
+
+script:
+  - set -ex; [ "$BUILD" = "osx" ] && brew install shellcheck; set +x;
+  - make
+
+matrix:
+  include:
+    - os: linux
+      env: BUILD=linux
+    - os: osx
+      env: BUILD=osx
