@@ -3,7 +3,8 @@
 all: clean validate test package
 
 validate:
-	@echo "Performing basic validation on project files..."
+	@echo "Performing basic validation on project..."
+	@[ ! -z "${BUILD}" ] || (echo "ERROR: Do not run the make file manually!\\n Use 'docker build ./' instead."; exit 1)
 	@find git-hooks/ -type f | xargs shellcheck || (echo "ERROR: shellcheck has detected issues."; exit 1)
 	@echo "PASSED: shellcheck found no issues."
 	@printf "All validation passed.\n\n"
