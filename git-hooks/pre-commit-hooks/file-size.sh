@@ -2,7 +2,7 @@
 set -e
 
 too_big() {
-    if [ "$(stat -c %s "$toplevel/$1")" -gt "$maxsize" ] ; then
+    if [ "$(wc -c <"$toplevel/$1")" -gt "$maxsize" ] ; then
         cat <<EOF
 Error: Attempting to commit a file larger than approximately $(maxsize/1000/1000)MB.
 
