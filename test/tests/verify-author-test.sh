@@ -15,6 +15,8 @@ git add . > /dev/null 2>&1
 # Assertions
 set -e
 # exit 0 when details are configured correctly.
+git config --global user.email "you@example.com"
+git config --global user.name "Your Name"
 sh "$hook" > /dev/null 2>&1 || (echo "FAILED: verify-author.sh should exit 0 when author details configured correctly."; exit 1)
 # exit 1 when authors details are not valid.
 git config user.name "P"
