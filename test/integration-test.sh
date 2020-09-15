@@ -1,4 +1,7 @@
 #!/bin/sh
+
+[ ! -z "${BUILD}" ] || (echo "ERROR: Do not run the tests manually!\\n Use 'docker build ./' instead."; exit 1)
+
 wdir=$(pwd)
 tmpdir=$(mktemp -d -t groups-test-XXXXXXXXXX)
 
