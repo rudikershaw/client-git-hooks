@@ -11,3 +11,9 @@ Or you can specify a file which includes a new-line separated list of strings th
 ```
 git config hooks.excluded-strings.file exclusions.text
 ```
+
+You can also customise the error message.
+
+```
+git config hooks.excluded-strings.message "Your message here"
+```

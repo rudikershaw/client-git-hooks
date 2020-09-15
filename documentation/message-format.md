@@ -12,10 +12,10 @@ Alternatively, for more control of your commit messages you can specify a regula
 git config hooks.message-format.regex "$x"
 ```
 
-Where `$x` is a Perl compatible regular expression.
-
-You can also customise the error message:
+Where `$x` is a Perl compatible regular expression. You can also customise the error message.
 
 ```
 git config hooks.message-format.message "Your message here"
 ```
+
+The line that cannot be committed will be printed immediately after your message on the same line.
