@@ -19,6 +19,9 @@ git add . > /dev/null 2>&1
 set -e
 # exit 1 when a file with TODO is staged.
 sh "$hook" > /dev/null 2>&1 && (echo "FAILED: exclude-strings.sh should exit 1 when TODO present in staged changes."; exit 1)
+git config hooks.excluded-strings.message "Expected message"
+sh "$hook" 2>&1 | grep -q "Expected message" || (echo "FAILED: excluded-strings.sh custom message was not used."; exit 1)
+git config --unset hooks.excluded-strings.message
 # Do nothing if turned off by git configuration.
 git config hooks.excluded-strings.disabled true
 sh "$hook" > /dev/null 2>&1 || (echo "FAILED: exclude-strings.sh do nothing when hooks.excluded-strings.disabled=true."; exit 1)
@@ -31,7 +34,8 @@ rm file3.txt
 git add .
 sh "$hook" > /dev/null 2>&1 || (echo "FAILED: exclude-strings.sh should do nothing when exclusions file simply updated."; exit 1)
 git config --unset hooks.excluded-strings.file
-# exit 0 when no files larger than 1MB are staged.
+
+# exit 0 when no exluded strings are staged.
 rm file.txt
 git add .
 sh "$hook" > /dev/null 2>&1 || (echo "FAILED: exclude-strings.sh should exit 0 when no TODO in staged changes."; exit 1)

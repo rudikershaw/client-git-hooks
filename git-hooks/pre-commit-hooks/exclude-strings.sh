@@ -8,8 +8,9 @@ if ! git config --bool hooks.excluded-strings.disabled ; then
     # Copy the line seperate list of exclusions into a variable or default to 'TODO'
     toplevel=$(git rev-parse --show-toplevel)
     exclusions=$(cat "$toplevel/$file" 2>/dev/null || echo 'TODO')
+    message=$(git config hooks.excluded-strings.message || echo "You cannot commit new instances of ")
 
     echo "$exclusions" | while read -r x; do
-        git diff --cached -S"$x" --diff-filter=d --exit-code -- . ":(exclude)$toplevel/$file" > /dev/null 2>&1 || (echo "You cannot commit new instances of $x"; exit 1)
+        git diff --cached -S"$x" --diff-filter=d --exit-code -- . ":(exclude)$toplevel/$file" > /dev/null 2>&1 || (echo "$message $x"; exit 1)
     done
 fi
