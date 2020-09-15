@@ -22,6 +22,9 @@ sh "$hook" > /dev/null 2>&1 || (echo "FAILED: verify-author.sh should exit 0 whe
 git config user.name "P"
 git config user.email "S"
 sh "$hook" > /dev/null 2>&1 && (echo "FAILED: verify-author.sh should exit 1 when author details are not configured."; exit 1)
+git config hooks.verify-author.username-message "Expected message"
+sh "$hook" 2>&1 | grep -q "Expected message" || (echo "FAILED: message-format.sh custom message was not used."; exit 1)
+git config --unset hooks.verify-author.username-message
 # Do nothing if turned off by git configuration.
 git config hooks.verify-author.disabled true
 sh "$hook" > /dev/null 2>&1 || (echo "FAILED: verify-author.sh should do nothing when disabled."; exit 1)

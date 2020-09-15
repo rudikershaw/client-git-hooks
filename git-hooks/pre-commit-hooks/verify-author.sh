@@ -10,7 +10,9 @@ if ! git config --bool hooks.verify-author.disabled ; then
     # Get regexes for validating the author details or use sensible defaults.
     nameregex=$(git config hooks.verify-author.username || echo '\w\w+')
     emailregex=$(git config hooks.verify-author.email || echo '[^@]+@[^\.]+\..+')
+    usernamemessage=$(git config hooks.verify-author.username-message || echo "Author's Git user.name must match regex")
+    emailmessage=$(git config hooks.verify-author.email-message || echo "Author's Git user.email must match regex")
 
-    perl -E "exit 1 if '$name' !~ /$nameregex/" || (echo "Author's Git user.name must match regex '$nameregex'"; exit 1)
-    perl -E "exit 1 if '$email' !~ /$emailregex/" || (echo "Author's Git user.email must match regex '$emailregex'"; exit 1)
+    perl -E "exit 1 if '$name' !~ /$nameregex/" || (echo "$usernamemessage '$nameregex'"; exit 1)
+    perl -E "exit 1 if '$email' !~ /$emailregex/" || (echo "$emailmessage '$emailregex'"; exit 1)
 fi

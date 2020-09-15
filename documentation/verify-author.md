@@ -17,3 +17,12 @@ If you need to specify the required format of the `user.email` you can define a 
 ```sh
 git config hooks.verify-author.email "$x"
 ```
+
+You can also customise the error messages.
+
+```sh
+git config hooks.verify-author.username-message "Expected message"
+git config hooks.verify-author.email-message "Expected message"
+```
+
+The regex that you are expected to comply to will be printed after your message on the same line.
