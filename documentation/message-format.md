@@ -12,4 +12,10 @@ Alternatively, for more control of your commit messages you can specify a regula
 git config hooks.message-format.regex "$x"
 ```
 
-Where `$x` is a Perl compliant regular expression.
+Where `$x` is a Perl compatible regular expression.
+
+You can also customise the error message:
+
+```
+git config hooks.message-format.message "Your message here"
+```
