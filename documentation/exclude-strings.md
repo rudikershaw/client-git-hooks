@@ -17,3 +17,5 @@ You can also customise the error message.
 ```
 git config hooks.excluded-strings.message "Your message here"
 ```
+
+The line that cannot be committed will be printed immediately after your message on the same line.

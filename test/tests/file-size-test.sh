@@ -17,6 +17,9 @@ git add . > /dev/null 2>&1
 set -e
 # exit 1 when a file larger than 1MB is staged.
 sh "$hook" > /dev/null 2>&1 && (echo "FAILED: file-size.sh should exit 1 when a >1MB file staged."; exit 1)
+git config hooks.file-size.message "Expected message"
+sh "$hook" 2>&1 | grep -q "Expected message" || (echo "FAILED: file-size.sh custom message was not used."; exit 1)
+git config --unset hooks.file-size.message
 # Do nothing if turned off by git configuration.
 git config hooks.file-size.disabled true
 sh "$hook" > /dev/null 2>&1 || (echo "FAILED: file-size.sh exit 0 when hooks.file-size.disabled=true."; exit 1)

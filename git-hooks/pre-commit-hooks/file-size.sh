@@ -3,14 +3,16 @@ set -e
 
 too_big() {
     if [ "$(wc -c <"$toplevel/$1")" -gt "$maxsize" ] ; then
-        cat <<EOF
+        message=$(git config hooks.file-size.message || cat << EOF
 Error: Attempting to commit a file larger than approximately $(maxsize/1000/1000)MB.
 
 Commiting large files slows jenkins builds, clones, and other operations we'd rather not slow down.
 Consider generating, downloading, zipping, etc these files.
 
-Offending file - $1
+Offending file -
 EOF
+        )
+        echo "$message $1"
         exit 1
     fi
 }

@@ -17,5 +17,3 @@ Where `$x` is a Perl compatible regular expression. You can also customise the e
 ```
 git config hooks.message-format.message "Your message here"
 ```
-
-The line that cannot be committed will be printed immediately after your message on the same line.

@@ -12,4 +12,10 @@ Or if you need to change the maximum file size you can
 git config hooks.file-size.bytes $x
 ```
 
-Where `$x` is the maximum number of bytes for a file.
+Where `$x` is the maximum number of bytes for a file. You can also customise the error message.
+
+```
+git config hooks.file-size.message "Your message here"
+```
+
+The name of the file that cannot be committed will be printed immediately after your message on the same line.
