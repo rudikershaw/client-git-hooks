@@ -6,7 +6,7 @@ too_big() {
         message=$(git config hooks.file-size.message || cat << EOF
 Error: Attempting to commit a file larger than approximately $(maxsize/1000/1000)MB.
 
-Commiting large files slows jenkins builds, clones, and other operations we'd rather not slow down.
+Commiting large files slows jenkins builds, clones, and other operations.
 Consider generating, downloading, zipping, etc these files.
 
 Offending file -

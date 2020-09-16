@@ -6,7 +6,7 @@
 # Client Git Hooks
 A set of useful and generic client side (local) git hooks. To add all of them to your project simply copy the `git-hooks` directory into the root of your project and then notify Git that this directory is to be used for its hooks. You can do this using the following command;
 
-```
+```sh
 git config core.hooksPath git-hooks/
 ```
 
