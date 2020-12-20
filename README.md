@@ -1,7 +1,8 @@
 
 [![MIT Licence][licence-image]][licence-url]
 [![Build Status][travis-image]][travis-url]
-[![GitHub version][version-image]][version-url]
+[![GitHub version][version-image]][releases-url]
+[![Github all downloads][downloads-image]][releases-url]
 
 # Client Git Hooks
 A set of useful and generic client side (local) git hooks. To add all of them to your project simply copy the `git-hooks` directory into the root of your project and then notify Git that this directory is to be used for its hooks. You can do this using the following command;
@@ -25,5 +26,6 @@ The behaviour of these hooks can be changed by specifying custom git configurati
 [licence-url]: https://tldrlegal.com/license/mit-license
 [travis-image]: https://travis-ci.org/rudikershaw/client-git-hooks.svg?branch=master
 [travis-url]: https://travis-ci.org/rudikershaw/client-git-hooks
-[version-image]: https://badge.fury.io/gh/rudikershaw%2Fclient-git-hooks.svg
-[version-url]: https://github.com/rudikershaw/client-git-hooks
+[version-image]: https://img.shields.io/github/release/rudikershaw/client-git-hooks.svg
+[releases-url]: https://github.com/rudikershaw/client-git-hooks/releases/
+[downloads-image]: https://img.shields.io/github/downloads/rudikershaw/client-git-hooks/total.svg
