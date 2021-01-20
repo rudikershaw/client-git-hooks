@@ -2,7 +2,7 @@
 set -e
 
 # Run the hook if it has not been disabled by custom git configuration.
-if ! git config --bool hooks.verify-author.disabled ; then
+if ! git config --bool hooks.verify-author.disabled > /dev/null ; then
     # Get the name and email of the author from the git configuration.
     name=$(git config user.name)
     email=$(git config user.email)
