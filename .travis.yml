@@ -1,7 +1,7 @@
 language: sh
 
 script:
-  - set -ex; [ "$BUILD" = "osx" ] && brew install --force-bottle shellcheck; set +x;
+  - set -ex; [ "$BUILD" = "osx" ] && sudo port install shellcheck; set +x;
   - make
 
 matrix:
