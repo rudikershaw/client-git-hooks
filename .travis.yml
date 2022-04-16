@@ -1,12 +1,12 @@
 language: sh
 
 script:
-  - set -ex; [ "$BUILD" = "osx" ] && brew install shellcheck; set +x;
+  - set -ex; [ "$BUILD" = "osx" ] && wget -qO- "https://github.com/koalaman/shellcheck/releases/download/stable/shellcheck-stable.darwin.x86_64.tar.xz" | tar -xJv && cp "shellcheck-stable/shellcheck" /usr/bin/; set +x;
   - make
 
 matrix:
   include:
     - os: linux
       env: BUILD=linux
-#    - os: osx
-#      env: BUILD=osx
+    - os: osx
+      env: BUILD=osx
