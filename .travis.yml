@@ -1,7 +1,6 @@
 language: sh
 
 script:
-  - set -ex; [ "$BUILD" = "osx" ] && sudo port install shellcheck; set +x;
   - make
 
 matrix:
