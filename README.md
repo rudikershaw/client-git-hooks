@@ -24,8 +24,8 @@ The behaviour of these hooks can be changed by specifying custom git configurati
 
 [licence-image]: http://img.shields.io/npm/l/gulp-rtlcss.svg?style=flat
 [licence-url]: https://tldrlegal.com/license/mit-license
-[travis-image]: https://travis-ci.org/rudikershaw/client-git-hooks.svg?branch=master
-[travis-url]: https://travis-ci.org/rudikershaw/client-git-hooks
+[travis-image]: https://app.travis-ci.com/rudikershaw/client-git-hooks.svg?branch=develop
+[travis-url]: https://app.travis-ci.com/rudikershaw/client-git-hooks?branch=develop
 [version-image]: https://img.shields.io/github/release/rudikershaw/client-git-hooks.svg
 [releases-url]: https://github.com/rudikershaw/client-git-hooks/releases/
 [downloads-image]: https://img.shields.io/github/downloads/rudikershaw/client-git-hooks/total.svg
